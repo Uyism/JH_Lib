@@ -11,9 +11,10 @@ namespace Jh_Lib
     {
         // 인스턴스 숨김
         private static T mInstance;
-
-        // 생성자 노출
-        // 생성자 호출 시 static으로 생성한 인스턴스만 반환
+        // 생성자 숨김
+        private T(){};
+        
+        // 생성 대리자 호출 시 static으로 생성한 인스턴스만 반환
         public static T Instance()
         {
             if (mInstance == null)
@@ -29,7 +30,8 @@ namespace Jh_Lib
     public class MonoSingleTon<T> : MonoBehaviour where T : class
     {
         private static T mInstance;
-
+        private T(){};
+        
         public static T Instance()
         {
             if (mInstance == null)
